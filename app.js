@@ -9,10 +9,23 @@ var outputText = document.querySelector("#output-text");
 translateButton.addEventListener('click',translateToBanana);
 
 
-//
+//url:https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json
+//https://api.funtranslations.com/translate/minion.json
+
+function createUrlParameter(inputTextValue){
+    return "https://api.funtranslations.com/translate/minion.json?text="+inputTextValue ;
+
+}
 
 function translateToBanana(){
     console.log("hello clicked transalate button",translateButton);
-    outputText.innerHTML = inputText.value;
+    var url = createUrlParameter(inputText.value)
+    console.log(url);
+    fetch(url)
+    .then(response => response.json())
+    .then(json => {
+        outputText.innerHTML = json.contents.translated;
+        console.log(json.contents.translated)
+    });
 
 }
