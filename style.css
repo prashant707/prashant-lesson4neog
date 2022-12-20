@@ -1,0 +1,9 @@
+#input-button {
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+#output-text{
+    border : 1px solid black;
+    padding: 2rem;
+}
